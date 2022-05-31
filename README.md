@@ -3,7 +3,7 @@
  
  *Lớp: K66-CC*
 
-## 1. Hướng dẫn cài đặt (Được thực hiện dành cho Macbook chip M1):
+## 1. Hướng dẫn cài đặt (Được thực hiện dành cho Macbook M1):
    - Cài đặt SDL2 config theo như video sau: [Click Here](https://www.youtube.com/watch?v=GROeu4fL730&t=241s)
    - Tiến hành download hoặc clone source code trên github về máy
    - Dùng lệnh "make" trong terminal để tạo file chạy chương trình (thường là a.out)
