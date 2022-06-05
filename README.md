@@ -11,6 +11,7 @@
 
 ## 2. Mô tả chung:
   Game được viết bằng ngôn ngữ C++ và thư viện SDL2, được lấy cảm hứng từ tựa game Mario huyền thoại
+  ![image](https://user-images.githubusercontent.com/90144218/172061280-3840a259-c90e-4c9b-ab6c-37fa62baa3ed.png)
 
   *Cách chơi:* 
   - Người chơi điều khiển nhân vật vượt qua các chướng ngại vật trên đường đi:
