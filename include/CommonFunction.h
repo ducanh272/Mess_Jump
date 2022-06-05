@@ -31,10 +31,10 @@ const int RENDER_DRAW_COLOR = 0xff;
 
 #define BLANK_TILE 0
 #define TILE_SIZE 64
-#define MAX_MAP_X 400
+#define MAX_MAP_X 206
 #define MAX_MAP_Y 10
 
-#define STATE_MONEY 4
+#define STATE_MONEY 7
 struct Input
 {
     int left;

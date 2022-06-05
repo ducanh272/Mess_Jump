@@ -9,7 +9,9 @@
 #define MAX_FALL_SPEED 15
 #define PLAYER_SPEED 8
 #define PLAYER_JUMP_VAL 22
-#define NUM_FRAME 8
+#define NUM_FRAME 5
+#define TRAP_STATE_1 21
+#define TRAP_STATE_2 22
 
 class MainObject : public BaseObject
 {

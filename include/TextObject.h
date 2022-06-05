@@ -14,6 +14,8 @@ public:
         RED_TEXT = 0,
         WHITE_TEXT = 1,
         BLACK_TEXT = 2,
+        ORANGE_TEXT = 3,
+        BLUE_TEXT = 4,
     };
 
     bool LoadFromRenderText(TTF_Font* font, SDL_Renderer* screen);

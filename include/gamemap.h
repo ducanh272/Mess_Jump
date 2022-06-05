@@ -5,7 +5,7 @@
 #include "CommonFunction.h"
 #include "BaseObject.h"
 
-#define MAX_KIND_TILE 10
+#define MAX_KIND_TILE 23
 class TileMap : public BaseObject
 {
 public :

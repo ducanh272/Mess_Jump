@@ -81,7 +81,7 @@ void MainObject::Show(SDL_Renderer* des)
         frame_ = 0;
     }
 
-    if (frame_ >= 8)
+    if (frame_ / NUM_FRAME >= NUM_FRAME)
     {
         frame_ = 0;
     }
@@ -90,7 +90,7 @@ void MainObject::Show(SDL_Renderer* des)
         rect_.x = x_pos_ - map_x_;
         rect_.y = y_pos_ - map_y_;
 
-        SDL_Rect* current_clip = &frame_clip_[frame_];
+        SDL_Rect* current_clip = &frame_clip_[frame_/NUM_FRAME];
 
         SDL_Rect renderQuad = {rect_.x, rect_.y, width_frame_, height_frame_};
 
@@ -249,6 +249,12 @@ void MainObject::CheckToMap(Map& map_data)
                 map_data.tile[y2][x2] = 0;
                 IncreaseMoney();
             }
+            else if (val1 == TRAP_STATE_1 || val1 == TRAP_STATE_2 || 
+                     val2 == TRAP_STATE_1 || val2 == TRAP_STATE_2)
+            {
+                map_data.tile[y1][x2] = 0;
+                map_data.tile[y2][x2] = 0;
+            }
             else
             {
                 if (val1 != BLANK_TILE || val2 != BLANK_TILE)
@@ -260,7 +266,8 @@ void MainObject::CheckToMap(Map& map_data)
             }
         }
         else if (x_val_ < 0)
-        {   int val1 = map_data.tile[y1][x1];
+        {   
+            int val1 = map_data.tile[y1][x1];
             int val2 = map_data.tile[y2][x1];
 
             if (val1 == STATE_MONEY || val2 == STATE_MONEY)
@@ -268,6 +275,12 @@ void MainObject::CheckToMap(Map& map_data)
                 map_data.tile[y1][x1] = 0;
                 map_data.tile[y2][x1] = 0;
                 IncreaseMoney();
+            }
+            else if (val1 == TRAP_STATE_1 || val1 == TRAP_STATE_2 || 
+                     val2 == TRAP_STATE_1 || val2 == TRAP_STATE_2)
+            {
+                map_data.tile[y1][x1] = 0;
+                map_data.tile[y2][x1] = 0;
             }
             else 
             {
@@ -301,10 +314,17 @@ void MainObject::CheckToMap(Map& map_data)
                 map_data.tile[y2][x2] = 0;
                 IncreaseMoney();
             }
-            else
+            else if (val1 == TRAP_STATE_1 || val1 == TRAP_STATE_2)
             {
-                if (val1 != BLANK_TILE || val2 != BLANK_TILE)
-                {
+                 map_data.tile[y2][x1] = 0;
+               
+            }
+            else if (val2 == TRAP_STATE_1 || val2 == TRAP_STATE_2)
+            {
+                 map_data.tile[y2][x2] = 0;
+            }
+            else if (val1 != BLANK_TILE || val2 != BLANK_TILE)
+            {
                     y_pos_ = y2*TILE_SIZE;
                     y_pos_ -= (height_frame_ + 1);
                     y_val_ = 0;
@@ -313,7 +333,6 @@ void MainObject::CheckToMap(Map& map_data)
                     {
                         status_ = WALK_RIGHT;
                     }
-                }
             }
         }
         else if (y_val_ < 0)
@@ -326,13 +345,19 @@ void MainObject::CheckToMap(Map& map_data)
                 map_data.tile[y1][x2] = 0;
                 IncreaseMoney();
             }
-            else
+             else if (val1 == TRAP_STATE_1 || val1 == TRAP_STATE_2)
             {
-                if (val1 != BLANK_TILE || val2 != BLANK_TILE)
-                {
+                 map_data.tile[y1][x1] = 0;
+               
+            }
+            else if (val2 == TRAP_STATE_1 || val2 == TRAP_STATE_2)
+            {
+                 map_data.tile[y1][x2] = 0;
+            }
+            else if (val1 != BLANK_TILE || val2 != BLANK_TILE)  
+            {
                     y_pos_ = (y1+1)*TILE_SIZE;
                     y_val_ = 0;
-                }
             }
         }
     }
@@ -365,22 +390,22 @@ void MainObject::UpdateImagePlayer(SDL_Renderer* des)
     {
         if (status_ == WALK_LEFT)
         {
-            LoadImg("assets//images//player_left.png", des);
+            LoadImg("assets//images//main_left-05.png", des);
         }
         else if (status_ == WALK_RIGHT)
         {
-            LoadImg("assets//images//player_right.png", des);
+            LoadImg("assets//images//main_right-03.png", des);
         }
     }
     else
     {
         if (status_ == WALK_LEFT)
         {
-            LoadImg("assets//images//jum_left.png", des);
+            LoadImg("assets//images//jump_left-04.png", des);
         }
         else
         {
-            LoadImg("assets//images//jum_right.png", des);
+            LoadImg("assets//images//jump_right-02.png", des);
         }
     }
 }

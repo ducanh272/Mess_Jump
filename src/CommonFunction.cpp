@@ -13,7 +13,7 @@ int SDLCommonFunc::ShowMenu(SDL_Renderer* g_screen, TTF_Font* font,
     if (!ret) return 1;
 
     TextObject score_gained;
-    score_gained.SetColor(TextObject::WHITE_TEXT);
+    score_gained.SetColor(TextObject::BLUE_TEXT);
     if (mark_value != -1) 
     {
     std::string score = std::to_string(mark_value);
@@ -32,11 +32,11 @@ int SDLCommonFunc::ShowMenu(SDL_Renderer* g_screen, TTF_Font* font,
 
     TextObject text_menu[NUM_MENU_ITEM];
     text_menu[0].SetText(labels[0]);
-    text_menu[0].SetColor(TextObject::BLACK_TEXT);
+    text_menu[0].SetColor(TextObject::WHITE_TEXT);
     text_menu[0].LoadFromRenderText(font, g_screen);
 
     text_menu[1].SetText(labels[1]);
-    text_menu[1].SetColor(TextObject::BLACK_TEXT);
+    text_menu[1].SetColor(TextObject::WHITE_TEXT);
     text_menu[1].LoadFromRenderText(font, g_screen);
 
     SDL_Rect pos[NUM_MENU_ITEM];
@@ -73,7 +73,7 @@ int SDLCommonFunc::ShowMenu(SDL_Renderer* g_screen, TTF_Font* font,
                         {
                             selected[i] = 1;
                             text_menu[i].SetText(labels[i]);
-                            text_menu[i].SetColor(TextObject::RED_TEXT);
+                            text_menu[i].SetColor(TextObject::ORANGE_TEXT);
                             text_menu[i].LoadFromRenderText(font, g_screen);
                         }
                     }
@@ -83,7 +83,7 @@ int SDLCommonFunc::ShowMenu(SDL_Renderer* g_screen, TTF_Font* font,
                         {
                             selected[i] = 0;
                             text_menu[i].SetText(labels[i]);
-                            text_menu[i].SetColor(TextObject::BLACK_TEXT);
+                            text_menu[i].SetColor(TextObject::WHITE_TEXT);
                             text_menu[i].LoadFromRenderText(font, g_screen);
                         }                            
                     }
@@ -122,7 +122,7 @@ int SDLCommonFunc::ShowMenu(SDL_Renderer* g_screen, TTF_Font* font,
         if (mark_value != -1)
             score_gained.RendererText(g_screen, 
                                       SCREEN_WIDTH*0.5 - score_gained.GetWidth()*0.5, 
-                                      SCREEN_HEIGHT*0.5 - 20);
+                                      SCREEN_HEIGHT*0.5 - 50);
         SDL_RenderPresent(g_screen);
     }
     return 1;

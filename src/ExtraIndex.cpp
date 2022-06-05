@@ -34,7 +34,7 @@ void AliveIndex::Show(SDL_Renderer* screen)
     for (int i = 0; i < pos_list.size(); ++i)
     {
         rect_.x = pos_list.at(i);
-        rect_.y = 0;
+        rect_.y = 10;
         Render(screen);
     }
 }
