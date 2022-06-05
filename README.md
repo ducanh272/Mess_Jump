@@ -23,7 +23,7 @@
   - Số điểm được tính theo thời gian và số xu mà nhân vật kiếm được trong màn chơi.
 
 ## 3. Các chức năng chính:
-  **Demo game video:** Updating...
+  **Demo game video:** [Click Here](https://youtu.be/z4kHxijBjrU)
   - Menu game cơ bản.
   - Tương tác game thông qua chuột, bàn phím: điều khiển nhân vật di chuyển qua lại, nhảy,..
   - Hệ thống hình ảnh sinh động: Background game, map game, nhân vật game, threat, ...
