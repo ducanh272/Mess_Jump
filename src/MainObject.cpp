@@ -182,18 +182,6 @@ void MainObject::DoPlayer(Map& map_data)
         CheckToMap(map_data);
         CenterEntityOnMap(map_data);
     }
-    
-    if (come_back_time_ > 0)
-    {
-        come_back_time_ --;
-        if (come_back_time_ == 0)
-        {
-            x_pos_ = 0;
-            y_pos_ = 0;
-            x_val_ = 0;
-            y_val_ = 0; 
-        }
-    }
 }
 
 void MainObject::CenterEntityOnMap(Map& map_data)

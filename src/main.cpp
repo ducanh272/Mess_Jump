@@ -194,7 +194,7 @@ again_label:
         int money_count = 0;
         mark_value++;
 
-        //if(Mix_PlayingMusic() == 0 ) Mix_PlayMusic(music, -1);
+        if(Mix_PlayingMusic() == 0 ) Mix_PlayMusic(music, -1);
 
         fps_timer.start();
 
