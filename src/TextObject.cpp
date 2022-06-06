@@ -65,12 +65,12 @@ void TextObject::SetColor(int type)
     }
     else if (type == ORANGE_TEXT)
     {
-        SDL_Color color = { 255, 165, 0 };
+        SDL_Color color = { 247, 126, 33 };
         text_color_ = color;
     }
     else if (type == BLUE_TEXT)
     {
-        SDL_Color color = { 10, 161, 221 };
+        SDL_Color color = { 52, 179, 241 };
         text_color_ = color;
     }
 }

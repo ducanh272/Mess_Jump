@@ -35,6 +35,7 @@ const int RENDER_DRAW_COLOR = 0xff;
 #define MAX_MAP_Y 10
 
 #define STATE_MONEY 7
+
 struct Input
 {
     int left;

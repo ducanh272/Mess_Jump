@@ -143,6 +143,7 @@ std::vector<ThreatObject*> MakeThreatList()
 
 int main(int argc, char* argv[])
 {
+
     if (InitData() == false) return -1;
 
     bool is_quit = false;
@@ -182,7 +183,7 @@ again_label:
     exp_main.set_clip();
     
     TextObject mark_game;
-    mark_game.SetColor(TextObject::WHITE_TEXT);
+    mark_game.SetColor(TextObject::BLUE_TEXT);
     int mark_value = 0;
 
     TextObject money_game;
@@ -227,41 +228,44 @@ again_label:
         bool game_over = p_player.CheckDie(); 
         money_count = p_player.GetMoneyCount();
 
-        for (int i = 0; i < threats_list.size(); ++i)
+        if(!game_over)
         {
-            ThreatObject* p_threat = threats_list.at(i);
-            if (p_threat != NULL)
+            for (int i = 0; i < threats_list.size(); ++i)
             {
-                p_threat->SetMapXY(map_data.start_x_, map_data.start_y_);
-                p_threat->ImpMoveType(g_screen);
-                p_threat->DoPlayer(map_data);
-                p_threat->Show(g_screen);
-
-                //Check Collision Player - Threats
-                int frame_exp_width = exp_threat.get_frame_width();
-                int frame_exp_height = exp_threat.get_frame_height();
-
-                SDL_Rect rect_player = p_player.GetRectFrame();
-                SDL_Rect rect_threat = p_threat->GetRectFrame();
-                bool crash = SDLCommonFunc::CheckCollision(rect_player, rect_threat);
-
-                if (crash)
+                ThreatObject* p_threat = threats_list.at(i);
+                if (p_threat != NULL)
                 {
-                    for (int ex = 0; ex < NUM_FRAME_EXP; ++ex)
+                    p_threat->SetMapXY(map_data.start_x_, map_data.start_y_);
+                    p_threat->ImpMoveType(g_screen);
+                    p_threat->DoPlayer(map_data);
+                    p_threat->Show(g_screen);
+
+                    //Check Collision Player - Threats
+                    int frame_exp_width = exp_threat.get_frame_width();
+                    int frame_exp_height = exp_threat.get_frame_height();
+
+                    SDL_Rect rect_player = p_player.GetRectFrame();
+                    SDL_Rect rect_threat = p_threat->GetRectFrame();
+                    bool crash = SDLCommonFunc::CheckCollision(rect_player, rect_threat);
+
+                    if (crash)
                     {
-                      int x_pos = p_threat->GetRect().x - frame_exp_width*0.5;
-                      int y_pos = p_threat->GetRect().y - frame_exp_height*0.5;
+                        for (int ex = 0; ex < NUM_FRAME_EXP; ++ex)
+                        {
+                        int x_pos = p_threat->GetRect().x - frame_exp_width*0.5;
+                        int y_pos = p_threat->GetRect().y - frame_exp_height*0.5;
 
-                      exp_threat.set_frame(ex);
-                      exp_threat.SetRect(x_pos, y_pos);
-                      exp_threat.Show(g_screen);
-                    }
-                    Mix_PlayChannel(-1, g_sound_exp, 0);
-                    game_over = true;
-                }  
-            }
-        } 
-
+                        exp_threat.set_frame(ex);
+                        exp_threat.SetRect(x_pos, y_pos);
+                        exp_threat.Show(g_screen);
+                        }
+                        Mix_PlayChannel(-1, g_sound_exp, 0);
+                        game_over = true;
+                    }  
+                }
+            } 
+        }
+        
         std::string val_str_mark = std::to_string(mark_value);
         std::string strMark("Score: ");
         strMark += val_str_mark;
@@ -280,7 +284,7 @@ again_label:
 
         // MENU GAME OVER
         int score = mark_value + money_count;
-        if (game_over == true)
+        if (game_over)
         {
             int ret_menu = SDLCommonFunc::ShowMenu(g_screen, font_menu,
                                                   "Play Again", "Exit",

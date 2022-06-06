@@ -182,6 +182,17 @@ void MainObject::DoPlayer(Map& map_data)
         CheckToMap(map_data);
         CenterEntityOnMap(map_data);
     }
+    if (come_back_time_ > 0)
+    {
+        come_back_time_ --;
+        if (come_back_time_ == 0)
+        {
+            x_pos_ = 0;
+            y_pos_ = 0;
+            x_val_ = 0;
+            y_val_ = 0; 
+        }
+    }
 }
 
 void MainObject::CenterEntityOnMap(Map& map_data)
@@ -237,21 +248,13 @@ void MainObject::CheckToMap(Map& map_data)
                 map_data.tile[y2][x2] = 0;
                 IncreaseMoney();
             }
-            else if (val1 == TRAP_STATE_1 || val1 == TRAP_STATE_2 || 
-                     val2 == TRAP_STATE_1 || val2 == TRAP_STATE_2)
-            {
-                map_data.tile[y1][x2] = 0;
-                map_data.tile[y2][x2] = 0;
-            }
-            else
-            {
-                if (val1 != BLANK_TILE || val2 != BLANK_TILE)
+            else if (val1 != BLANK_TILE || val2 != BLANK_TILE)
                 {
                     x_pos_ = x2*TILE_SIZE;
                     x_pos_ -= width_frame_ + 1;
                     x_val_ = 0;
                 }
-            }
+            
         }
         else if (x_val_ < 0)
         {   
@@ -264,20 +267,11 @@ void MainObject::CheckToMap(Map& map_data)
                 map_data.tile[y2][x1] = 0;
                 IncreaseMoney();
             }
-            else if (val1 == TRAP_STATE_1 || val1 == TRAP_STATE_2 || 
-                     val2 == TRAP_STATE_1 || val2 == TRAP_STATE_2)
-            {
-                map_data.tile[y1][x1] = 0;
-                map_data.tile[y2][x1] = 0;
-            }
-            else 
-            {
-                if (val1 != BLANK_TILE || val2 != BLANK_TILE)
+            else if (val1 != BLANK_TILE || val2 != BLANK_TILE)
                 {
                     x_pos_ = (x1+1)*TILE_SIZE;
                     x_val_ = 0;
                 }
-            }
         }
     }
 
@@ -333,7 +327,7 @@ void MainObject::CheckToMap(Map& map_data)
                 map_data.tile[y1][x2] = 0;
                 IncreaseMoney();
             }
-             else if (val1 == TRAP_STATE_1 || val1 == TRAP_STATE_2)
+            else if (val1 == TRAP_STATE_1 || val1 == TRAP_STATE_2)
             {
                  map_data.tile[y1][x1] = 0;
                
@@ -363,7 +357,7 @@ void MainObject::CheckToMap(Map& map_data)
 
     if (y_pos_ > map_data.max_y_)
     {
-        come_back_time_ = 60;
+        is_die = true;
     }
 }   
 
