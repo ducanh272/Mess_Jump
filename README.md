@@ -45,14 +45,16 @@
 
 ## 5. Kết luận
  **Hướng phát triển**: 
-Em sẽ cải tiến thêm các tuỳ chọn bao gồm
+Em sẽ cải tiến thêm các tuỳ chọn bao gồm:
  - Xây dựng map đa dạng, phức tạp hơn. 
- - Bổ sung thêm menu game nhằm nâng cao trải nghiệm.
+ - Bổ sung thêm menu game nhằm nâng cao trải nghiệm người chơi, tăng khả năng tuỳ biến game.
  - Bổ sung các chướng ngại vật, level game.
+ 
+ Và trong quá trình nâng cấp game, em sẽ suy nghĩ thêm nhiều ý tưởng mới lạ để bổ sung vào game.
 
 Thông qua việc làm game cơ bản, em đã nâng cao được nhiều kĩ năng về lập trình: tìm kiếm thông tin, tư duy giải quyết vấn đề, trao đổi, học hỏi từ các tiền bối trong ngành. 
 
-Tuy vẫn còn nhiều thiếu sót nhưng dự án này sẽ là nền tảng để em nghiên cứu sâu thêm về cách thức hoạt động, cách xây dựng các hệ thống phức tạp hơn trong tương lai.
+Tuy vẫn còn nhiều thiếu sót nhưng dự án này đã mang lại cho em nhiều bài học và sẽ là nền tảng để em nghiên cứu sâu thêm về cách thức hoạt động, cách xây dựng các hệ thống phức tạp hơn trong tương lai.
 
 ## 6. Credit
 - Nguồn tham khảo chính: [Phát Triển Phần Mềm 123A-Z](https://www.youtube.com/c/Ph%C3%A1tTri%E1%BB%83nPh%E1%BA%A7nM%E1%BB%81m123AZ)
