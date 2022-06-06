@@ -18,9 +18,10 @@
   - Người chơi điều khiển nhân vật vượt qua các chướng ngại vật trên đường đi:
      - Nhấn mũi tên trái, phải để di chuyển nhân vật qua trái hoặc phải
      - Chuột phải dùng để nhảy
-  - Nếu không vượt qua được người chơi sẽ mất đi một sinh mệnh. Ngoài ra nếu va chạm với threat ở trên đường đi thì cũng mất đi 1 sinh mệnh.
+  - Khi người chơi va chạm với chướng ngại vật trên đường đi hoặc bị rơi xuống vực thẳm thì game sẽ kết thúc ngay lập tức.
 
-       Nếu hết số sinh mệnh cho phép thì game kết thúc.
+    Khi đó, sẽ có bảng tuỳ chọn để người chơi Play Again hoặc Exit.
+  - Game còn bổ sung thêm một số bẫy bất ngờ nhằm tăng thêm độ thú vị, nhưng cũng có thể gây khó chịu cho người chơi 😅  
   - Số điểm được tính theo thời gian và số xu mà nhân vật kiếm được trong màn chơi.
 
 ## 3. Các chức năng chính:
